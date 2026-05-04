@@ -117,6 +117,17 @@ footer{background:#050505;border-top:1px solid var(--border);padding:1.4rem 2rem
 .flinks a{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none}
 .flinks a:hover{color:var(--off)}
 .ftxt{font-size:.7rem;color:var(--muted)}
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:1000;align-items:center;justify-content:center;cursor:zoom-out}
+.lightbox.open{display:flex}
+.lightbox-img{max-width:92vw;max-height:92vh;object-fit:contain;border-radius:2px;cursor:default}
+.lightbox-close{position:absolute;top:1.25rem;right:1.5rem;color:rgba(255,255,255,.7);font-size:2rem;cursor:pointer;line-height:1;border:none;background:none;font-family:monospace}
+.lightbox-close:hover{color:white}
+.lightbox-prev,.lightbox-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:white;width:48px;height:48px;border-radius:2px;cursor:pointer;font-size:1.3rem;display:flex;align-items:center;justify-content:center;font-family:monospace;transition:background .2s}
+.lightbox-prev{left:1rem}.lightbox-next{right:1rem}
+.lightbox-prev:hover,.lightbox-next:hover{background:rgba(255,255,255,.2)}
+.zoom-hint{position:absolute;bottom:1.25rem;left:50%;transform:translateX(-50%);font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.mslide img{cursor:zoom-in}
 @media(max-width:900px){
   nav{padding:0 1rem}.nlinks{display:none}
   .hero{grid-template-columns:1fr}.hero-left{height:55vw}.hero-right{padding:1.75rem 1.25rem;backdrop-filter:none;background:rgba(10,10,10,.9)}
@@ -148,7 +159,7 @@ footer{background:#050505;border-top:1px solid var(--border);padding:1.4rem 2rem
 <!-- HERO -->
 <div class="hero">
   <div class="hero-left">
-    <img class="hero-product-img" src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-er7k4hgovwod1.webp" alt="McLaren P1 Display Stand">
+    <img class="hero-product-img" src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-f0v599lpvwod1.webp" alt="McLaren P1 Display Stand">
   </div>
   <div class="hero-right">
     <div class="htag">Now Available — PDF Instructions</div>
@@ -201,11 +212,11 @@ footer{background:#050505;border-top:1px solid var(--border);padding:1.4rem 2rem
       </div>
       <div class="mgallery" id="g-p1">
         <div class="mslides" id="s-p1">
-          <div class="mslide"><img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-er7k4hgovwod1.webp" alt="McLaren P1 on stand"></div>
-          <div class="mslide"><img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-7cdfy9lpvwod1.webp" alt="Side view"></div>
-          <div class="mslide"><img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-f0v599lpvwod1.webp" alt="Front angle"></div>
-          <div class="mslide"><img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-lawtgigovwod1.webp" alt="Detail"></div>
+          <div class="mslide"><img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-f0v599lpvwod1.webp" alt="McLaren P1 on stand"></div>
           <div class="mslide"><img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-8y6q7azovwod1.webp" alt="Stand close-up"></div>
+          <div class="mslide"><img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-er7k4hgovwod1.webp" alt="Side view"></div>
+          <div class="mslide"><img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-7cdfy9lpvwod1.webp" alt="Detail"></div>
+          <div class="mslide"><img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-lawtgigovwod1.webp" alt="Detail 2"></div>
           <div class="mslide"><img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-5prhbglpvwod1.webp" alt="Stand base"></div>
           <div class="mslide"><img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-5ahe9d9pvwod1.webp" alt="Render"></div>
           <div class="mslide"><img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-eazgcalpvwod1.webp" alt="Render 2"></div>
@@ -217,11 +228,11 @@ footer{background:#050505;border-top:1px solid var(--border);padding:1.4rem 2rem
         <div class="mdots" id="d-p1"></div>
       </div>
       <div class="mthumb-strip" style="grid-template-columns:repeat(8,1fr)">
-        <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-er7k4hgovwod1.webp" class="active" onclick="goTo('p1',0)" alt="">
-        <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-7cdfy9lpvwod1.webp" onclick="goTo('p1',1)" alt="">
-        <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-f0v599lpvwod1.webp" onclick="goTo('p1',2)" alt="">
-        <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-lawtgigovwod1.webp" onclick="goTo('p1',3)" alt="">
-        <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-8y6q7azovwod1.webp" onclick="goTo('p1',4)" alt="">
+        <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-f0v599lpvwod1.webp" class="active" onclick="goTo('p1',0)" alt="">
+        <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-8y6q7azovwod1.webp" onclick="goTo('p1',1)" alt="">
+        <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-er7k4hgovwod1.webp" onclick="goTo('p1',2)" alt="">
+        <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-7cdfy9lpvwod1.webp" onclick="goTo('p1',3)" alt="">
+        <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-lawtgigovwod1.webp" onclick="goTo('p1',4)" alt="">
         <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-5prhbglpvwod1.webp" onclick="goTo('p1',5)" alt="">
         <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-5ahe9d9pvwod1.webp" onclick="goTo('p1',6)" alt="">
         <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-eazgcalpvwod1.webp" onclick="goTo('p1',7)" alt="">
@@ -591,8 +602,18 @@ footer{background:#050505;border-top:1px solid var(--border);padding:1.4rem 2rem
   <span class="ftxt">© 2025 FlexBrickBuilds / Flex Foundry Studio, LLC</span>
 </footer>
 
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">&#215;</button>
+  <button class="lightbox-prev" onclick="lbNav(-1);event.stopPropagation()">&#8592;</button>
+  <img class="lightbox-img" id="lbImg" src="" alt="" onclick="event.stopPropagation()">
+  <button class="lightbox-next" onclick="lbNav(1);event.stopPropagation()">&#8594;</button>
+  <span class="zoom-hint">Click outside or press ESC to close</span>
+</div>
+
 <script>
 var st={};
+var lbSrcs=[];var lbIdx=0;
 function initGallery(id,count){
   st[id]=0;
   var dots=document.getElementById('d-'+id);
@@ -603,6 +624,13 @@ function initGallery(id,count){
     d.className='mdot'+(i===0?' on':'');
     (function(idx){d.onclick=function(){goTo(id,idx);};})(i);
     dots.appendChild(d);
+  }
+  // wire up click-to-zoom on slides
+  var slides=document.getElementById('s-'+id);
+  if(slides){
+    Array.from(slides.querySelectorAll('.mslide img')).forEach(function(img,i){
+      img.addEventListener('click',function(){openLightbox(slides,i);});
+    });
   }
 }
 function goTo(id,idx){
@@ -618,6 +646,28 @@ function goTo(id,idx){
   if(block){block.querySelectorAll('.mthumb-strip img').forEach(function(t,i){t.classList.toggle('active',i===idx);});}
 }
 function slide(id,dir){goTo(id,(st[id]||0)+dir);}
+function openLightbox(slides,startIdx){
+  lbSrcs=Array.from(slides.querySelectorAll('.mslide img')).map(function(i){return i.src;});
+  lbIdx=startIdx;
+  document.getElementById('lbImg').src=lbSrcs[lbIdx];
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+function lbNav(dir){
+  lbIdx=((lbIdx+dir)+lbSrcs.length)%lbSrcs.length;
+  document.getElementById('lbImg').src=lbSrcs[lbIdx];
+}
+document.addEventListener('keydown',function(e){
+  var lb=document.getElementById('lightbox');
+  if(!lb.classList.contains('open'))return;
+  if(e.key==='Escape')closeLightbox();
+  if(e.key==='ArrowLeft')lbNav(-1);
+  if(e.key==='ArrowRight')lbNav(1);
+});
 document.addEventListener('DOMContentLoaded',function(){
   initGallery('p1',8);
   initGallery('sp',7);

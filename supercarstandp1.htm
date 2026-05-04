@@ -127,17 +127,17 @@ footer{background:#050505;border-top:1px solid var(--border);padding:1.4rem 2rem
 <div class="product-hero">
   <div class="product-gallery">
     <div class="main-img-wrap">
-      <img id="mainImg" src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-eazgcalpvwod1.webp" alt="McLaren P1 Display Stand">
+      <img id="mainImg" src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-f0v599lpvwod1.webp" alt="McLaren P1 Display Stand" style="cursor:zoom-in" onclick="openLightbox(0)">
     </div>
     <div class="thumb-strip">
-      <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-eazgcalpvwod1.webp" alt="Render — no car" class="active" onclick="setImg(this)">
-      <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-5ahe9d9pvwod1.webp" alt="Render V4" onclick="setImg(this)">
-      <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-er7k4hgovwod1.webp" alt="Photo" onclick="setImg(this)">
-      <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-7cdfy9lpvwod1.webp" alt="Photo" onclick="setImg(this)">
-      <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-f0v599lpvwod1.webp" alt="Photo" onclick="setImg(this)">
-      <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-lawtgigovwod1.webp" alt="Photo" onclick="setImg(this)">
-      <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-8y6q7azovwod1.webp" alt="Photo" onclick="setImg(this)">
-      <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-5prhbglpvwod1.webp" alt="Photo" onclick="setImg(this)">
+      <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-f0v599lpvwod1.webp" alt="Photo" class="active" onclick="setImg(this,0)">
+      <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-8y6q7azovwod1.webp" alt="Photo" onclick="setImg(this,1)">
+      <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-er7k4hgovwod1.webp" alt="Photo" onclick="setImg(this,2)">
+      <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-7cdfy9lpvwod1.webp" alt="Photo" onclick="setImg(this,3)">
+      <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-lawtgigovwod1.webp" alt="Photo" onclick="setImg(this,4)">
+      <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-5prhbglpvwod1.webp" alt="Photo" onclick="setImg(this,5)">
+      <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-5ahe9d9pvwod1.webp" alt="Render" onclick="setImg(this,6)">
+      <img src="supercarstandp1/supercar-stand-moc-mclaren-p1-v0-eazgcalpvwod1.webp" alt="Render 2" onclick="setImg(this,7)">
     </div>
   </div>
 
@@ -217,12 +217,53 @@ footer{background:#050505;border-top:1px solid var(--border);padding:1.4rem 2rem
   <span class="ftxt">© 2025 FlexBrickBuilds</span>
 </footer>
 
+<!-- LIGHTBOX -->
+<div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:1000;align-items:center;justify-content:center;cursor:zoom-out" onclick="closeLightbox()">
+  <button onclick="closeLightbox()" style="position:absolute;top:1.25rem;right:1.5rem;color:rgba(255,255,255,.7);font-size:2rem;cursor:pointer;border:none;background:none;font-family:monospace">&#215;</button>
+  <button onclick="lbNav(-1);event.stopPropagation()" style="position:absolute;left:1rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:white;width:48px;height:48px;border-radius:6px;cursor:pointer;font-size:1.3rem;font-family:monospace">&#8592;</button>
+  <img id="lbImg" src="" style="max-width:92vw;max-height:92vh;object-fit:contain;cursor:default" onclick="event.stopPropagation()">
+  <button onclick="lbNav(1);event.stopPropagation()" style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:white;width:48px;height:48px;border-radius:6px;cursor:pointer;font-size:1.3rem;font-family:monospace">&#8594;</button>
+</div>
+
 <script>
-function setImg(el) {
-  document.getElementById('mainImg').src = el.src;
-  document.querySelectorAll('.thumb-strip img').forEach(i => i.classList.remove('active'));
+var imgs=[
+  'supercarstandp1/supercar-stand-moc-mclaren-p1-v0-f0v599lpvwod1.webp',
+  'supercarstandp1/supercar-stand-moc-mclaren-p1-v0-8y6q7azovwod1.webp',
+  'supercarstandp1/supercar-stand-moc-mclaren-p1-v0-er7k4hgovwod1.webp',
+  'supercarstandp1/supercar-stand-moc-mclaren-p1-v0-7cdfy9lpvwod1.webp',
+  'supercarstandp1/supercar-stand-moc-mclaren-p1-v0-lawtgigovwod1.webp',
+  'supercarstandp1/supercar-stand-moc-mclaren-p1-v0-5prhbglpvwod1.webp',
+  'supercarstandp1/supercar-stand-moc-mclaren-p1-v0-5ahe9d9pvwod1.webp',
+  'supercarstandp1/supercar-stand-moc-mclaren-p1-v0-eazgcalpvwod1.webp'
+];
+var lbIdx=0;
+function setImg(el,idx){
+  document.getElementById('mainImg').src=el.src;
+  document.querySelectorAll('.thumb-strip img').forEach(function(t){t.classList.remove('active');});
   el.classList.add('active');
+  lbIdx=idx;
 }
+function openLightbox(idx){
+  lbIdx=idx;
+  document.getElementById('lbImg').src=imgs[lbIdx];
+  var lb=document.getElementById('lightbox');
+  lb.style.display='flex';
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').style.display='none';
+  document.body.style.overflow='';
+}
+function lbNav(dir){
+  lbIdx=((lbIdx+dir)+imgs.length)%imgs.length;
+  document.getElementById('lbImg').src=imgs[lbIdx];
+}
+document.addEventListener('keydown',function(e){
+  if(document.getElementById('lightbox').style.display==='none')return;
+  if(e.key==='Escape')closeLightbox();
+  if(e.key==='ArrowLeft')lbNav(-1);
+  if(e.key==='ArrowRight')lbNav(1);
+});
 </script>
 </body>
 </html>
